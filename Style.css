@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.product-card:hover img {
+    transform: scale(1.08);
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.glass{
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    
+}
