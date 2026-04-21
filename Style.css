@@ -1,26 +1,89 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+/* style.css */
 
-body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    scroll-behavior: smooth;
+body{
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.product-card:hover img {
-    transform: scale(1.08);
+/* Scrollbar */
+::-webkit-scrollbar{
+    width:6px;
+    height:6px;
 }
 
-.glass {
-    background: rgba(255, 255, 255, 0.8);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+::-webkit-scrollbar-thumb{
+    background:#2563eb;
+    border-radius:10px;
 }
 
-.scrollbar-hide::-webkit-scrollbar {
-    display: none;
+/* Card sản phẩm */
+.card{
+    transition:0.3s;
 }
-.glass{
-    background: rgba(255, 255, 255, 0.8);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+/* Nút danh mục */
+.category-btn{
+    padding:10px 18px;
+    background:#e2e8f0;
+    border-radius:999px;
+    font-weight:bold;
+    white-space:nowrap;
+    transition:0.3s;
+}
+
+.category-btn:hover{
+    background:#cbd5e1;
+}
+
+.category-btn.active{
+    background:#2563eb;
+    color:white;
+}
+
+/* Nút phân trang */
+.page-btn{
+    padding:10px 14px;
+    background:white;
+    border-radius:12px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.page-btn:hover{
+    background:#dbeafe;
+}
+
+.page-btn.active{
+    background:#2563eb;
+    color:white;
+}
+
+/* Input form */
+.form-input{
+    width:100%;
+    border:1px solid #cbd5e1;
+    padding:12px;
+    border-radius:14px;
+    margin-bottom:12px;
+    outline:none;
+}
+
+.form-input:focus{
+    border:1px solid #2563eb;
+}
+
+/* Mobile */
+@media(max-width:640px){
+
+    #search{
+        width:140px;
+    }
+
+    h1{
+        font-size:24px;
+    }
+
 }
