@@ -23,6 +23,12 @@
 Sport<span class="text-blue-500">X</span> Pro
 </h1>
 
+<button onclick="toggleSupportModal()" 
+    class="bg-slate-700 px-4 py-2 rounded-xl hover:bg-slate-600 transition-colors flex items-center gap-2">
+    <span>🎧</span>
+    <span class="hidden md:inline">Hỗ trợ</span>
+</button>
+
 <div class="flex gap-3 items-center">
 
 <input
@@ -146,6 +152,29 @@ Gửi đơn hàng
 </div>
 
 <script src="app.js"></script>
+<div id="toast-container" class="fixed bottom-5 right-5 z-[100] flex flex-col gap-2 pointer-events-none">
+    </div>
+    <div id="supportModal" class="fixed inset-0 bg-black/60 hidden z-[60] flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center relative shadow-2xl transform transition-all">
+        
+        <button onclick="toggleSupportModal()" class="absolute top-4 right-4 text-slate-400 hover:text-red-500 text-2xl">
+            ✖
+        </button>
 
+        <h3 class="text-2xl font-black text-slate-900 mb-2">Hỗ trợ khách hàng</h3>
+        <p class="text-slate-500 text-sm mb-6">Quét mã QR dưới đây để liên hệ với đội ngũ CSKH của SportX</p>
+
+        <div class="bg-slate-100 p-4 rounded-2xl inline-block mb-6 border-2 border-dashed border-slate-300">
+            <img id="qrImage" src="images/QR_ho_tro.jpg"
+                 alt="Mã QR Hỗ trợ" 
+                 class="w-48 h-48 mx-auto rounded-lg shadow-sm">
+        </div>
+
+        <div class="space-y-2">
+            <p class="font-bold text-blue-600">Hotline: 1900 1234</p>
+            <p class="text-xs text-slate-400 italic">Thời gian làm việc: 08:00 - 22:00 hàng ngày</p>
+        </div>
+    </div>
+</div>
 </body>
 </html>
