@@ -67,7 +67,49 @@ id="categoryList"
 class="max-w-7xl mx-auto px-4 flex gap-3 overflow-x-auto">
 </div>
 </section>
+<div class="flex gap-2 items-center">
+    <select id="sortPrice" onchange="sortProducts()" class="px-3 py-2 rounded-xl text-sm border-none outline-none text-slate-900 font-bold bg-white">
+        <option value="default">Sắp xếp</option>
+        <option value="low">Giá: Thấp - Cao</option>
+        <option value="high">Giá: Cao - Thấp</option>
+        <option value="az">Tên: A - Z</option>
+    </select>
+    </div>
 
+<div id="detailModal" class="fixed inset-0 bg-black/70 hidden z-[70] flex items-center justify-center p-4 backdrop-blur-md">
+    <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative flex flex-col md:flex-row shadow-2xl">
+        <button onclick="closeDetail()" class="absolute top-4 right-4 z-10 bg-white/80 p-2 rounded-full hover:text-red-500 transition-colors">✖</button>
+        
+        <div class="md:w-1/2 p-6 bg-slate-50 flex items-center justify-center">
+            <img id="detailImg" src="" class="w-full h-auto object-contain rounded-2xl">
+        </div>
+        
+        <div class="md:w-1/2 p-8">
+            <span id="detailCat" class="text-blue-600 font-bold text-xs uppercase tracking-widest">Category</span>
+            <h2 id="detailName" class="text-3xl font-black text-slate-900 my-2 italic">Product Name</h2>
+            <p id="detailPrice" class="text-2xl font-bold text-slate-700 mb-6 underline">0đ</p>
+            
+            <div class="mb-6">
+                <label class="block text-sm font-bold text-slate-500 mb-3 uppercase">Chọn Kích Cỡ (Size):</label>
+                <div id="sizeList" class="flex flex-wrap gap-2">
+                    </div>
+            </div>
+            
+            <p id="detailDesc" class="text-slate-500 text-sm leading-relaxed mb-8">
+                Mô tả chi tiết về sản phẩm: Chất liệu cao cấp, thoáng khí, hỗ trợ tối đa cho các hoạt động thể thao cường độ cao.
+            </p>
+            
+            <button id="addWithDetail" class="w-full bg-blue-600 text-white py-4 rounded-2xl font-black hover:bg-slate-900 transition-all transform active:scale-95 shadow-xl">
+                THÊM VÀO GIỎ HÀNG
+            </button>
+        </div>
+    </div>
+</div>
+
+<button id="scrollTopBtn" onclick="scrollToTop()" 
+    class="fixed bottom-24 right-5 bg-white text-slate-900 w-12 h-12 rounded-full shadow-2xl border flex items-center justify-center opacity-0 invisible transition-all duration-300 z-40 hover:bg-blue-600 hover:text-white">
+    ▲
+</button>
 <!-- PRODUCTS -->
 <section class="max-w-7xl mx-auto px-4 py-8">
 
@@ -116,39 +158,6 @@ Xác nhận đơn hàng
 </button>
 
 </div>
-
-<!-- FORM -->
-<div id="orderForm" class="hidden mt-6">
-
-<input
-id="name"
-placeholder="Họ và tên"
-class="form-input">
-
-<input
-id="phone"
-placeholder="Số điện thoại"
-class="form-input">
-
-<input
-id="email"
-placeholder="Email"
-class="form-input">
-
-<textarea
-id="address"
-placeholder="Địa chỉ"
-class="form-input h-28"></textarea>
-
-<button
-onclick="submitOrder()"
-class="w-full bg-green-600 text-white py-3 rounded-xl font-bold hover:bg-green-700">
-Gửi đơn hàng
-</button>
-
-</div>
-
-</div>
 </div>
 
 <script src="app.js"></script>
@@ -176,5 +185,50 @@ Gửi đơn hàng
         </div>
     </div>
 </div>
+
+<div id="orderModal" class="fixed inset-0 bg-black/60 hidden z-[80] flex items-center justify-center p-4 backdrop-blur-sm">
+    <div class="bg-white w-full max-w-md rounded-3xl p-8 shadow-2xl relative transform transition-all scale-95">
+        
+        <button onclick="closeOrderModal()" class="absolute top-4 right-4 text-slate-400 hover:text-red-500 transition-colors">
+            ✖
+        </button>
+
+        <div class="text-center mb-6">
+            <h2 class="text-2xl font-black text-slate-900">Thông Tin Giao Hàng</h2>
+            <p class="text-slate-500 text-sm">Vui lòng điền chính xác để SportX liên hệ bạn</p>
+        </div>
+
+        <div class="space-y-4">
+            <div>
+                <label class="block text-xs font-bold text-slate-400 uppercase mb-1 ml-1">Họ và tên</label>
+                <input id="name" placeholder="Nguyễn Văn A" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all">
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-slate-400 uppercase mb-1 ml-1">Số điện thoại</label>
+                <input id="phone" placeholder="0901 234 567" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all">
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-slate-400 uppercase mb-1 ml-1">Email</label>
+                <input id="email" placeholder="example@gmail.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all">
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-slate-400 uppercase mb-1 ml-1">Địa chỉ nhận hàng</label>
+                <textarea id="address" placeholder="Số nhà, tên đường, phường/xã..." class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 h-24 resize-none transition-all"></textarea>
+            </div>
+
+            <button onclick="submitOrder()" class="w-full bg-green-600 text-white py-4 rounded-2xl font-black hover:bg-green-700 shadow-lg shadow-green-200 transition-all transform active:scale-95 mt-4">
+                XÁC NHẬN ĐẶT HÀNG NGAY
+            </button>
+            
+            <button onclick="closeOrderModal()" class="w-full text-slate-400 text-sm font-bold hover:text-slate-600 transition-colors">
+                Quay lại giỏ hàng
+            </button>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
