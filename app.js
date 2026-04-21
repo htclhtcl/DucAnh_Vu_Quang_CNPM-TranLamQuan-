@@ -169,9 +169,17 @@ function loadPagination(total){
     document.getElementById("pagination").innerHTML = html;
 }
 
-function changePage(page){
+function changePage(page) {
     currentPage = page;
+    
+    // 1. Cập nhật lại danh sách sản phẩm của trang mới
     loadProducts();
+
+    // 2. Tự động cuộn lên đầu trang mượt mà
+    window.scrollTo({
+        top: 0, 
+        behavior: 'smooth' // 'smooth' giúp cuộn từ từ, 'auto' sẽ nhảy lên ngay lập tức
+    });
 }
 
 function updateCart(){
@@ -220,9 +228,23 @@ function removeItem(id){
 function openCart(){ document.getElementById("cartModal").classList.remove("hidden"); }
 function closeCart(){ document.getElementById("cartModal").classList.add("hidden"); }
 
-function showForm(){
-    if(cart.length==0) return showToast("Giỏ hàng đang trống!", "error");
-    document.getElementById("orderForm").classList.remove("hidden");
+// 1. Mở Pop-up điền thông tin
+function showForm() {
+    if (cart.length === 0) {
+        showToast("Giỏ hàng đang trống!", "error");
+        return;
+    }
+
+    // 1. Hiện Modal đặt hàng
+    const orderModal = document.getElementById("orderModal");
+    orderModal.classList.remove("hidden");
+
+}
+
+function closeOrderModal() {
+    document.getElementById("orderModal").classList.add("hidden");
+    // Nếu muốn quay lại giỏ hàng khi bấm "Quay lại"
+    openCart(); 
 }
 
 function submitOrder(){
@@ -270,6 +292,134 @@ window.onclick = function(event) {
     if (event.target == cartModal) {
         closeCart();
     }
+}
+// Thêm biến quản lý sắp xếp
+let currentSort = "default";
+let selectedSize = null; // Lưu size đang chọn
+
+// 1. HÀM SẮP XẾP SẢN PHẨM
+function sortProducts() {
+    currentSort = document.getElementById("sortPrice").value;
+    loadProducts(); // Load lại để áp dụng sắp xếp mới
+}
+
+// 2. CẬP NHẬT HÀM LOAD PRODUCTS (Thêm logic sắp xếp và nút Chi tiết)
+function loadProducts() {
+    let key = document.getElementById("search").value.toLowerCase();
+    
+    // Lọc dữ liệu trước
+    let data = products.filter(p => {
+        let matchName = p.name.toLowerCase().includes(key);
+        let matchCat = currentCategory == "All" || p.category == currentCategory;
+        return matchName && matchCat;
+    });
+
+    // SẮP XẾP DỮ LIỆU
+    if (currentSort === "low") data.sort((a, b) => a.price - b.price);
+    if (currentSort === "high") data.sort((a, b) => b.price - a.price);
+    if (currentSort === "az") data.sort((a, b) => a.name.localeCompare(b.name));
+
+    let start = (currentPage - 1) * perPage;
+    let end = start + perPage;
+    let show = data.slice(start, end);
+
+    let html = "";
+    show.forEach(p => {
+        html += `
+        <div class="card bg-white p-4 rounded-2xl shadow hover:shadow-xl transition-all group overflow-hidden">
+            <div class="relative overflow-hidden rounded-xl mb-3 h-52">
+                <img src="${p.image}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <button onclick="openDetail(${p.id})" class="bg-white text-black px-4 py-2 rounded-lg font-bold text-xs shadow-lg transform translate-y-10 group-hover:translate-y-0 transition-transform">
+                        XEM CHI TIẾT
+                    </button>
+                </div>
+            </div>
+            <h3 class="font-bold text-lg h-14 line-clamp-2">${p.name}</h3>
+            <div class="flex justify-between items-center mt-2">
+                <p class="text-blue-600 font-bold">${p.price.toLocaleString()}đ</p>
+                <button onclick="openDetail(${p.id})" class="bg-blue-50 text-blue-600 p-2 rounded-lg hover:bg-blue-600 hover:text-white transition-colors">
+                   +
+                </button>
+            </div>
+        </div>`;
+    });
+    document.getElementById("productList").innerHTML = html;
+    loadPagination(data.length);
+}
+
+// 3. HÀM CHI TIẾT SẢN PHẨM
+function openDetail(id) {
+    const p = products.find(x => x.id == id);
+    document.getElementById("detailName").innerText = p.name;
+    document.getElementById("detailPrice").innerText = p.price.toLocaleString() + "đ";
+    document.getElementById("detailImg").src = p.image;
+    document.getElementById("detailCat").innerText = p.category;
+    
+    // Tạo danh sách Size (Mẫu cho Giày hoặc Áo)
+    const sizes = p.category === "Shoes" ? [39, 40, 41, 42, 43] : ["S", "M", "L", "XL"];
+    selectedSize = sizes[0]; // Mặc định chọn size đầu
+    
+    let sizeHtml = "";
+    sizes.forEach(s => {
+        sizeHtml += `<button onclick="selectSize(this, '${s}')" 
+            class="size-btn px-4 py-2 border-2 rounded-xl font-bold transition-all ${s === selectedSize ? 'border-blue-600 bg-blue-50 text-blue-600' : 'border-slate-100 text-slate-400'}">
+            ${s}
+            </button>`;
+    });
+    document.getElementById("sizeList").innerHTML = sizeHtml;
+    
+    // Gán sự kiện cho nút thêm vào giỏ trong Modal
+    document.getElementById("addWithDetail").onclick = () => {
+        addCart(p.id, selectedSize);
+        closeDetail();
+    };
+
+    document.getElementById("detailModal").classList.remove("hidden");
+}
+
+function selectSize(btn, size) {
+    selectedSize = size;
+    document.querySelectorAll('.size-btn').forEach(b => {
+        b.classList.remove('border-blue-600', 'bg-blue-50', 'text-blue-600');
+        b.classList.add('border-slate-100', 'text-slate-400');
+    });
+    btn.classList.add('border-blue-600', 'bg-blue-50', 'text-blue-600');
+}
+
+function closeDetail() {
+    document.getElementById("detailModal").classList.add("hidden");
+}
+
+// 4. CẬP NHẬT HÀM ADDCART (Để lưu kèm Size)
+function addCart(id, size = "N/A") {
+    let item = cart.find(x => x.id == id && x.size == size);
+    let p = products.find(x => x.id == id);
+
+    if (item) {
+        item.qty++;
+    } else {
+        cart.push({ ...p, qty: 1, size: size });
+    }
+    
+    updateCart();
+    showToast(`Đã thêm <b>${p.name}</b> (Size: ${size}) vào giỏ!`);
+}
+
+// 5. NÚT CUỘN LÊN ĐẦU TRANG
+window.onscroll = function() {
+    let btn = document.getElementById("scrollTopBtn");
+    if (document.documentElement.scrollTop > 300) {
+        btn.classList.remove("opacity-0", "invisible");
+        btn.classList.add("opacity-100", "visible");
+    } else {
+        btn.classList.add("opacity-0", "invisible");
+        btn.classList.remove("opacity-100", "visible");
+    }
+};
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // KHỞI CHẠY
