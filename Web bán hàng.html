@@ -17,40 +17,30 @@
 
 <!-- HEADER -->
 <header class="bg-slate-900 text-white sticky top-0 z-50 shadow-lg">
-<div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
 
-<h1 class="text-3xl font-black cursor-pointer">
-Sport<span class="text-blue-500">X</span> Pro
-</h1>
+    <h1 class="text-3xl font-black cursor-pointer">
+        Sport<span class="text-blue-500">X</span> Pro
+    </h1>
 
-<button onclick="toggleSupportModal()" 
-    class="bg-slate-700 px-4 py-2 rounded-xl hover:bg-slate-600 transition-colors flex items-center gap-2">
-    <span>🎧</span>
-    <span class="hidden md:inline">Hỗ trợ</span>
-</button>
+    <button onclick="openSupportModal()" 
+        class="bg-slate-700 px-4 py-2 rounded-xl hover:bg-slate-600 transition-colors flex items-center gap-2">
+        <span>🎧</span>
+        <span class="hidden md:inline">Hỗ trợ</span>
+    </button>
 
-<div class="flex gap-3 items-center">
+    <div class="flex gap-3 items-center">
 
-<input
-id="search"
-type="text"
-placeholder="Tìm sản phẩm..."
-class="px-4 py-2 rounded-xl text-black w-52 md:w-64"
-/>
+    <input id="search" type="text" placeholder="Tìm sản phẩm..." class="px-4 py-2 rounded-xl text-black w-52 md:w-64"/>
 
-<button onclick="openCart()"
-class="relative bg-blue-600 px-4 py-2 rounded-xl hover:bg-blue-700">
+    <button onclick="openCart()" class="relative bg-blue-600 px-4 py-2 rounded-xl hover:bg-blue-700">🛒
+        <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-xs w-5 h-5 rounded-full flex items-center justify-center">
+        0
+        </span>
 
-🛒
-
-<span id="cartCount"
-class="absolute -top-2 -right-2 bg-red-500 text-xs w-5 h-5 rounded-full flex items-center justify-center">
-0
-</span>
-
-</button>
-
-</div>
+    </button>
+        </div>
+    </div>
 </div>
 </header>
 
@@ -61,20 +51,22 @@ class="absolute -top-2 -right-2 bg-red-500 text-xs w-5 h-5 rounded-full flex ite
 </section>
 
 <!-- CATEGORY -->
-<section class="bg-white shadow py-5">
-<div
-id="categoryList"
-class="max-w-7xl mx-auto px-4 flex gap-3 overflow-x-auto">
-</div>
-</section>
-<div class="flex gap-2 items-center">
-    <select id="sortPrice" onchange="sortProducts()" class="px-3 py-2 rounded-xl text-sm border-none outline-none text-slate-900 font-bold bg-white">
-        <option value="default">Sắp xếp</option>
-        <option value="low">Giá: Thấp - Cao</option>
-        <option value="high">Giá: Cao - Thấp</option>
-        <option value="az">Tên: A - Z</option>
-    </select>
+<section class="max-w-7xl mx-auto px-4 mt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <div id="categoryList" class="flex gap-2 overflow-x-auto pb-2 w-full md:w-auto">
+        <button onclick="filterCategory('All')" class="px-6 py-2 rounded-xl bg-white font-bold shadow-sm hover:bg-blue-600 hover:text-white transition-all">Tất cả</button>
+        <button onclick="filterCategory('Shoes')" class="px-6 py-2 rounded-xl bg-white font-bold shadow-sm hover:bg-blue-600 hover:text-white transition-all">Giày</button>
+        <button onclick="filterCategory('Shirt')" class="px-6 py-2 rounded-xl bg-white font-bold shadow-sm hover:bg-blue-600 hover:text-white transition-all">Quần áo</button>
     </div>
+    <div class="flex gap-2 items-center bg-white px-4 py-2 rounded-2xl shadow-sm border border-slate-200">
+        <span class="text-xs font-bold text-slate-400 uppercase">Sắp xếp:</span>
+        <select id="sortPrice" onchange="sortProducts()" class="outline-none text-sm font-bold text-slate-900 bg-transparent">
+            <option value="default">Mặc định</option>
+            <option value="low">Giá: Thấp - Cao</option>
+            <option value="high">Giá: Cao - Thấp</option>
+            <option value="az">Tên: A - Z</option>
+        </select>
+    </div>
+</section>
 
 <div id="detailModal" class="fixed inset-0 bg-black/70 hidden z-[70] flex items-center justify-center p-4 backdrop-blur-md">
     <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative flex flex-col md:flex-row shadow-2xl">
@@ -113,32 +105,21 @@ class="max-w-7xl mx-auto px-4 flex gap-3 overflow-x-auto">
 <!-- PRODUCTS -->
 <section class="max-w-7xl mx-auto px-4 py-8">
 
-<div
-id="productList"
-class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-</div>
+    <div id="productList" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
 
-<div
-id="pagination"
-class="flex justify-center gap-2 mt-10 flex-wrap">
-</div>
+    <div id="pagination" class="flex justify-center gap-2 mt-10 flex-wrap"></div>
 
 </section>
 
 <!-- CART -->
-<div
-id="cartModal"
-class="fixed inset-0 bg-black/60 hidden z-50">
+<div id="cartModal" class="fixed inset-0 bg-black/60 hidden z-50">
 
-<div
-class="bg-white w-full max-w-xl h-full absolute right-0 p-6 overflow-y-auto">
+<div class="bg-white w-full max-w-xl h-full absolute right-0 p-6 overflow-y-auto">
 
 <div class="flex justify-between items-center mb-5">
 <h2 class="text-2xl font-bold">Giỏ hàng</h2>
 
-<button onclick="closeCart()"
-class="text-red-500 text-2xl">
-✖
+<button onclick="closeCart()" class="text-red-500 text-2xl">✖
 </button>
 </div>
 
@@ -165,10 +146,6 @@ Xác nhận đơn hàng
     </div>
     <div id="supportModal" class="fixed inset-0 bg-black/60 hidden z-[60] flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center relative shadow-2xl transform transition-all">
-        
-        <button onclick="toggleSupportModal()" class="absolute top-4 right-4 text-slate-400 hover:text-red-500 text-2xl">
-            ✖
-        </button>
 
         <h3 class="text-2xl font-black text-slate-900 mb-2">Hỗ trợ khách hàng</h3>
         <p class="text-slate-500 text-sm mb-6">Quét mã QR dưới đây để liên hệ với đội ngũ CSKH của SportX</p>

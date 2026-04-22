@@ -1,59 +1,59 @@
 // ===== DANH SÁCH SẢN PHẨM =====
 let products = [
-    { id:1,  name:"Nike Mercurial Vapor", price:1200000, category:"Shoes", image:"image/img1.jpg" },
-    { id:2,  name:"Adidas Predator Edge", price:1450000, category:"Shoes", image:"image/img2.jpg" },
-    { id:3,  name:"Puma Ultra Speed", price:1350000, category:"Shoes", image:"image/img3.jpg" },
-    { id:4,  name:"Mizuno Alpha Pro", price:1500000, category:"Shoes", image:"image/img4.jpg" },
-    { id:5,  name:"Nike Tiempo Legend", price:1600000, category:"Shoes", image:"image/img5.jpg" },
-    { id:6,  name:"Adidas X Crazyfast", price:1550000, category:"Shoes", image:"image/img6.jpg" },
-    { id:7,  name:"Puma Future Z", price:1480000, category:"Shoes", image:"image/img7.jpg" },
-    { id:8,  name:"Mizuno Neo III", price:1380000, category:"Shoes", image:"image/img8.jpg" },
-    { id:9,  name:"Nike Zoom Run", price:1250000, category:"Shoes", image:"image/img9.jpg" },
-    { id:10, name:"Adidas Run Falcon", price:1150000, category:"Shoes", image:"image/img10.jpg" },
+    { id:1,  name:"Nike Mercurial Vapor", price:1200000, category:"Shoes", image:"images/img1.jpg" },
+    { id:2,  name:"Adidas Predator Edge", price:1450000, category:"Shoes", image:"images/img2.jpg" },
+    { id:3,  name:"Puma Ultra Speed", price:1350000, category:"Shoes", image:"images/img3.jpg" },
+    { id:4,  name:"Mizuno Alpha Pro", price:1500000, category:"Shoes", image:"images/img4.jpg" },
+    { id:5,  name:"Nike Tiempo Legend", price:1600000, category:"Shoes", image:"images/img5.jpg" },
+    { id:6,  name:"Adidas X Crazyfast", price:1550000, category:"Shoes", image:"images/img6.jpg" },
+    { id:7,  name:"Puma Future Z", price:1480000, category:"Shoes", image:"images/img7.jpg" },
+    { id:8,  name:"Mizuno Neo III", price:1380000, category:"Shoes", image:"images/img8.jpg" },
+    { id:9,  name:"Nike Zoom Run", price:1250000, category:"Shoes", image:"images/img9.jpg" },
+    { id:10, name:"Adidas Run Falcon", price:1150000, category:"Shoes", image:"images/img10.jpg" },
 
-    { id:11, name:"Áo MU 2026", price:450000, category:"Shirt", image:"image/mu.jpg" },
-    { id:12, name:"Áo Real Madrid", price:470000, category:"Shirt", image:"image/real.jpg" },
-    { id:13, name:"Áo Barcelona", price:460000, category:"Shirt", image:"image/barca.jpg" },
-    { id:14, name:"Áo Chelsea", price:430000, category:"Shirt", image:"image/chelsea.jpg" },
-    { id:15, name:"Áo Arsenal", price:440000, category:"Shirt", image:"image/arsenal.jpg" },
-    { id:16, name:"Áo Liverpool", price:450000, category:"Shirt", image:"image/liverpool.jpg" },
-    { id:17, name:"Áo PSG", price:470000, category:"Shirt", image:"image/psg.jpg" },
-    { id:18, name:"Áo Bayern", price:460000, category:"Shirt", image:"image/bayern.jpg" },
-    { id:19, name:"Áo Juventus", price:440000, category:"Shirt", image:"image/juve.jpg" },
-    { id:20, name:"Áo Inter Milan", price:430000, category:"Shirt", image:"image/inter.jpg" },
+    { id:11, name:"Áo MU 2026", price:450000, category:"Shirt", image:"images/mu.jpg" },
+    { id:12, name:"Áo Real Madrid", price:470000, category:"Shirt", image:"images/real.jpg" },
+    { id:13, name:"Áo Barcelona", price:460000, category:"Shirt", image:"images/barca.jpg" },
+    { id:14, name:"Áo Chelsea", price:430000, category:"Shirt", image:"images/chelsea.jpg" },
+    { id:15, name:"Áo Arsenal", price:440000, category:"Shirt", image:"images/arsenal.jpg" },
+    { id:16, name:"Áo Liverpool", price:450000, category:"Shirt", image:"images/liverpool.jpg" },
+    { id:17, name:"Áo PSG", price:470000, category:"Shirt", image:"images/psg.jpg" },
+    { id:18, name:"Áo Bayern", price:460000, category:"Shirt", image:"images/bayern.jpg" },
+    { id:19, name:"Áo Juventus", price:440000, category:"Shirt", image:"images/juve.jpg" },
+    { id:20, name:"Áo Inter Milan", price:430000, category:"Shirt", image:"images/inter.jpg" },
 
-    { id:21, name:"Bóng FIFA Pro", price:350000, category:"Ball", image:"image/ball1.jpg" },
-    { id:22, name:"Bóng Champions", price:360000, category:"Ball", image:"image/ball2.jpg" },
-    { id:23, name:"Bóng Nike Flight", price:390000, category:"Ball", image:"image/ball3.jpg" },
-    { id:24, name:"Bóng Adidas UCL", price:410000, category:"Ball", image:"image/ball4.jpg" },
-    { id:25, name:"Bóng Puma Match", price:320000, category:"Ball", image:"image/ball5.jpg" },
-    { id:26, name:"Bóng Futsal Pro", price:280000, category:"Ball", image:"image/ball6.jpg" },
-    { id:27, name:"Bóng Training", price:250000, category:"Ball", image:"image/ball7.jpg" },
-    { id:28, name:"Bóng Mini Kid", price:180000, category:"Ball", image:"image/ball8.jpg" },
-    { id:29, name:"Bóng Street", price:220000, category:"Ball", image:"image/ball9.jpg" },
-    { id:30, name:"Bóng Premium", price:450000, category:"Ball", image:"image/ball10.jpg" },
+    { id:21, name:"Bóng FIFA Pro", price:350000, category:"Ball", image:"images/ball1.jpg" },
+    { id:22, name:"Bóng Champions", price:360000, category:"Ball", image:"images/ball2.jpg" },
+    { id:23, name:"Bóng Nike Flight", price:390000, category:"Ball", image:"images/ball3.jpg" },
+    { id:24, name:"Bóng Adidas UCL", price:410000, category:"Ball", image:"images/ball4.jpg" },
+    { id:25, name:"Bóng Puma Match", price:320000, category:"Ball", image:"images/ball5.jpg" },
+    { id:26, name:"Bóng Futsal Pro", price:280000, category:"Ball", image:"images/ball6.jpg" },
+    { id:27, name:"Bóng Training", price:250000, category:"Ball", image:"images/ball7.jpg" },
+    { id:28, name:"Bóng Mini Kid", price:180000, category:"Ball", image:"images/ball8.jpg" },
+    { id:29, name:"Bóng Street", price:220000, category:"Ball", image:"images/ball9.jpg" },
+    { id:30, name:"Bóng Premium", price:450000, category:"Ball", image:"images/ball10.jpg" },
 
-    { id:31, name:"Túi Gym Nike", price:500000, category:"Bag", image:"image/bag1.jpg" },
-    { id:32, name:"Túi Adidas", price:520000, category:"Bag", image:"image/bag2.jpg" },
-    { id:33, name:"Balo Puma", price:470000, category:"Bag", image:"image/bag3.jpg" },
-    { id:34, name:"Balo Thể Thao", price:430000, category:"Bag", image:"image/bag4.jpg" },
-    { id:35, name:"Túi Du Lịch", price:620000, category:"Bag", image:"image/bag5.jpg" },
-    { id:36, name:"Túi Mini Sport", price:350000, category:"Bag", image:"image/bag6.jpg" },
-    { id:37, name:"Balo Runner", price:410000, category:"Bag", image:"image/bag7.jpg" },
-    { id:38, name:"Túi Đá Bóng", price:490000, category:"Bag", image:"image/bag8.jpg" },
-    { id:39, name:"Balo Premium", price:690000, category:"Bag", image:"image/bag9.jpg" },
-    { id:40, name:"Túi Team Kit", price:550000, category:"Bag", image:"image/bag10.jpg" },
+    { id:31, name:"Túi Gym Nike", price:500000, category:"Bag", image:"images/bag1.jpg" },
+    { id:32, name:"Túi Adidas", price:520000, category:"Bag", image:"images/bag2.jpg" },
+    { id:33, name:"Balo Puma", price:470000, category:"Bag", image:"images/bag3.jpg" },
+    { id:34, name:"Balo Thể Thao", price:430000, category:"Bag", image:"images/bag4.jpg" },
+    { id:35, name:"Túi Du Lịch", price:620000, category:"Bag", image:"images/bag5.jpg" },
+    { id:36, name:"Túi Mini Sport", price:350000, category:"Bag", image:"images/bag6.jpg" },
+    { id:37, name:"Balo Runner", price:410000, category:"Bag", image:"images/bag7.jpg" },
+    { id:38, name:"Túi Đá Bóng", price:490000, category:"Bag", image:"images/bag8.jpg" },
+    { id:39, name:"Balo Premium", price:690000, category:"Bag", image:"images/bag9.jpg" },
+    { id:40, name:"Túi Team Kit", price:550000, category:"Bag", image:"images/bag10.jpg" },
 
-    { id:41, name:"Tất Nike", price:90000, category:"Accessory", image:"image/acc1.jpg" },
-    { id:42, name:"Tất Adidas", price:85000, category:"Accessory", image:"image/acc2.jpg" },
-    { id:43, name:"Găng Tay GK", price:290000, category:"Accessory", image:"image/acc3.jpg" },
-    { id:44, name:"Băng Gối", price:120000, category:"Accessory", image:"image/acc4.jpg" },
-    { id:45, name:"Bình Nước Sport", price:140000, category:"Accessory", image:"image/acc5.jpg" },
-    { id:46, name:"Mũ Lưỡi Trai", price:170000, category:"Accessory", image:"image/acc6.jpg" },
-    { id:47, name:"Khăn Thể Thao", price:95000, category:"Accessory", image:"image/acc7.jpg" },
-    { id:48, name:"Còi Trọng Tài", price:80000, category:"Accessory", image:"image/acc8.jpg" },
-    { id:49, name:"Dây Nhảy", price:130000, category:"Accessory", image:"image/acc9.jpg" },
-    { id:50, name:"Bó Cổ Tay", price:110000, category:"Accessory", image:"image/acc10.jpg" }
+    { id:41, name:"Tất Nike", price:90000, category:"Accessory", image:"images/acc1.jpg" },
+    { id:42, name:"Tất Adidas", price:85000, category:"Accessory", image:"images/acc2.jpg" },
+    { id:43, name:"Găng Tay GK", price:290000, category:"Accessory", image:"images/acc3.jpg" },
+    { id:44, name:"Băng Gối", price:120000, category:"Accessory", image:"images/acc4.jpg" },
+    { id:45, name:"Bình Nước Sport", price:140000, category:"Accessory", image:"images/acc5.jpg" },
+    { id:46, name:"Mũ Lưỡi Trai", price:170000, category:"Accessory", image:"images/acc6.jpg" },
+    { id:47, name:"Khăn Thể Thao", price:95000, category:"Accessory", image:"images/acc7.jpg" },
+    { id:48, name:"Còi Trọng Tài", price:80000, category:"Accessory", image:"images/acc8.jpg" },
+    { id:49, name:"Dây Nhảy", price:130000, category:"Accessory", image:"images/acc9.jpg" },
+    { id:50, name:"Bó Cổ Tay", price:110000, category:"Accessory", image:"images/acc10.jpg" }
 ];
 
 // Thêm các sản phẩm còn lại vào đây như cũ của bạn...
@@ -67,7 +67,6 @@ const categories = ["All","Shoes","Shirt","Ball","Bag","Accessory"];
 
 // ===== 1. HÀM TẠO THÔNG BÁO (TOAST) =====
 function showToast(message, type = 'success') {
-    // Tạo container nếu chưa có
     let container = document.getElementById("toast-container");
     if (!container) {
         container = document.createElement("div");
@@ -77,22 +76,28 @@ function showToast(message, type = 'success') {
     }
 
     const toast = document.createElement("div");
-    // Style cho thông báo bằng Tailwind
+    // Màu sắc thay đổi dựa trên loại thông báo (success hoặc error)
+    const bgColor = type === 'success' ? 'border-blue-500' : 'border-red-500';
+    const icon = type === 'success' ? '✓' : '✕';
+    const iconBg = type === 'success' ? 'bg-blue-500' : 'bg-red-500';
+
     toast.className = `bg-slate-900 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 
                        transform transition-all duration-500 translate-y-20 opacity-0 border-l-4 
-                       ${type === 'success' ? 'border-blue-500' : 'border-red-500'} pointer-events-auto`;
+                       ${bgColor} pointer-events-auto`;
     
     toast.innerHTML = `
-        <span class="${type === 'success' ? 'bg-blue-500' : 'bg-red-500'} text-white rounded-full w-6 h-6 flex items-center justify-center text-xs">✓</span>
+        <span class="${iconBg} text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">${icon}</span>
         <span class="font-medium">${message}</span>
     `;
 
     container.appendChild(toast);
 
-    // Hiệu ứng hiện hình
-    setTimeout(() => toast.classList.remove('translate-y-20', 'opacity-0'), 100);
+    // Hiệu ứng trượt lên
+    setTimeout(() => {
+        toast.classList.remove('translate-y-20', 'opacity-0');
+    }, 100);
 
-    // Tự động biến mất sau 3 giây
+    // Tự động xóa sau 3 giây
     setTimeout(() => {
         toast.classList.add('opacity-0', '-translate-y-10');
         setTimeout(() => toast.remove(), 500);
@@ -112,8 +117,8 @@ function addCart(id){
 
     updateCart();
 
-    // HIỆN THÔNG BÁO TẠI ĐÂY
-    showToast(`Đã thêm <b>${p.name}</b> vào giỏ hàng!`);
+    // THÊM DÒNG NÀY: Hiển thị thông báo khi thêm thành công
+    showToast(`Đã thêm <b>${p.name}</b> vào giỏ hàng!`, 'success');
 }
 
 // Các hàm loadCategory, filterCategory, loadProducts giữ nguyên như của bạn...
@@ -145,15 +150,28 @@ function loadProducts(){
     let show = data.slice(start,end);
 
     let html = "";
-    show.forEach(p=>{
+    // Tìm đoạn show.forEach trong app.js và thay bằng:
+    show.forEach(p => {
         html += `
-        <div class="card bg-white p-4 rounded-2xl shadow hover:shadow-lg transition-all">
-            <img src="${p.image}" class="w-full h-52 object-cover rounded-xl mb-3">
+        <div class="card bg-white p-4 rounded-2xl shadow hover:shadow-xl transition-all group overflow-hidden">
+            <div class="relative overflow-hidden rounded-xl mb-3 h-52 bg-gray-200">
+                <img src="${p.image}" 
+                    onerror="this.src='https://placehold.co/400x400?text=Loi+Anh'" 
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                
+                <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <button onclick="openDetail(${p.id})" class="bg-white text-black px-4 py-2 rounded-lg font-bold text-xs shadow-lg transform translate-y-10 group-hover:translate-y-0 transition-transform">
+                        XEM CHI TIẾT
+                    </button>
+                </div>
+            </div>
             <h3 class="font-bold text-lg h-14 line-clamp-2">${p.name}</h3>
-            <p class="text-blue-600 font-bold my-2">${p.price.toLocaleString()}đ</p>
-            <button onclick="addCart(${p.id})" class="w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-slate-900 transition-colors">
-                Thêm vào giỏ
-            </button>
+            <div class="flex justify-between items-center mt-2">
+                <p class="text-blue-600 font-bold">${p.price.toLocaleString()}đ</p>
+                <button onclick="openDetail(${p.id})" class="bg-blue-50 text-blue-600 p-2 rounded-lg hover:bg-blue-600 hover:text-white transition-colors">
+                +
+                </button>
+            </div>
         </div>`;
     });
     document.getElementById("productList").innerHTML = html;
@@ -261,8 +279,10 @@ function submitOrder(){
     showToast("Đặt hàng thành công! Cảm ơn bạn.");
     cart = [];
     updateCart();
-    closeCart();
-    document.getElementById("orderForm").classList.add("hidden");
+    
+    // Đóng các modal liên quan đến đơn hàng
+    document.getElementById("orderModal").classList.add("hidden"); 
+    closeCart(); 
 }
 
 document.getElementById("search").addEventListener("input",()=>{
@@ -270,29 +290,38 @@ document.getElementById("search").addEventListener("input",()=>{
     loadProducts();
 });
 // HÀM ĐÓNG/MỞ MODAL HỖ TRỢ
-function toggleSupportModal() {
+// Hàm Mở
+function openSupportModal() {
     const modal = document.getElementById("supportModal");
-    modal.classList.toggle("hidden");
-    
-    // Nếu bạn muốn thêm hiệu ứng mượt mà khi hiện ra
-    if(!modal.classList.contains("hidden")) {
-        modal.style.animation = "fadeIn 0.3s ease-out";
-    }
+    modal.classList.remove("hidden");
+    modal.style.animation = "fadeIn 0.3s ease-out";
+}
+
+// Hàm Đóng
+function closeSupportModal() {
+    const modal = document.getElementById("supportModal");
+    modal.classList.add("hidden");
 }
 
 // Lắng nghe sự kiện click bên ngoài để đóng modal hỗ trợ
 window.onclick = function(event) {
-    const supportModal = document.getElementById("supportModal");
-    const cartModal = document.getElementById("cartModal");
-    
-    if (event.target == supportModal) {
-        toggleSupportModal();
-    }
-    // Giữ nguyên logic đóng cart modal nếu có
-    if (event.target == cartModal) {
-        closeCart();
+    const modals = {
+        'supportModal': 'supportModal',
+        'cartModal': 'cartModal',
+        'detailModal': 'detailModal',
+        'orderModal': 'orderModal'
+    };
+
+    for (let id in modals) {
+        let modalElement = document.getElementById(id);
+        if (event.target == modalElement) {
+            modalElement.classList.add("hidden");
+            // Nếu là giỏ hàng thì gọi thêm hàm cập nhật giao diện nếu cần
+            if(id === 'cartModal') closeCart(); 
+        }
     }
 }
+
 // Thêm biến quản lý sắp xếp
 let currentSort = "default";
 let selectedSize = null; // Lưu size đang chọn
@@ -424,4 +453,4 @@ function scrollToTop() {
 
 // KHỞI CHẠY
 loadCategory();
-loadProducts(); 
+loadProducts();
